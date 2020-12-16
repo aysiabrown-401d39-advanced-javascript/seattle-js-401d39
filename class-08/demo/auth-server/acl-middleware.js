@@ -1,28 +1,18 @@
 'use strict';
 
-const users = require('./users.js');
+// function that looks at the parameter and says, is this parametere in my capabilites? if it is, call next(). If it isn't, throw an error
+// I know that there is a req.user because bearerAuth adds a uers key to the req object if it is successful
 
-// Notice the curried middleware...we take the desired capability from the route
-// and return a middleware function that's aware of it. We did something similar in
-// Class 07
 module.exports = (capability) => {
-
   return (req, res, next) => {
-
-    // We're expecting that previous middleware has put the user object on the request object
-    // Given that, we can just inspect their capabilities.
-    // Using a try/catch to avoid having to deeply check this object
-    try {
-      if (req.user.capabilities.includes(capability)) {
+    try{
+      if( req.user.capabilities.includes(capability) ){
         next();
+      } else {
+        next( 'Access Denied' );
       }
-      else {
-        next('Access Denied');
-      }
-    } catch (e) {
-      next('Invalid Login');
+    } catch(e) {
+      next( 'Invalid Login' );
     }
-
   }
-
 }

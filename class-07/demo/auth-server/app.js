@@ -32,6 +32,10 @@ app.post('/user', bearerAuth, (req, res) => {
   res.status(200).json(req.user);
 })
 
+// app.get('/reallyCoolStuff', bearerAuth, (req, res) => {
+  
+// })
+
 mongoose.connect('mongodb://localhost:27017/newauth', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     // turn on the server

@@ -8,9 +8,12 @@ const mongoose = require('mongoose');
 
 // brings in the food model
 const FoodCollection = require('./models/food-collection');
+const foodModel = require('./models/food-model');
+const kittenModel = require('./models/kitten-model');
 
 // new instance of my FoodCollection
-const foodInstance = new FoodCollection();
+const foodInstance = new FoodCollection(foodModel);
+const kittenInstance = new FoodCollection(kittenModel);
 
 // const MONGOOSE_URI = 'mongodb://localhost:27017/food';
 const options = {useNewUrlParser: true, useUnifiedTopology: true}

@@ -39,4 +39,5 @@ Your team grade is based on the following factors:
 
 1. % of the application that was completed
 1. Code Quality
+1. Team Work
 1. Presentation
